@@ -18,7 +18,7 @@ if args.backend == 'matplotlib':
     from mpl_toolkits.mplot3d import Axes3D
 
     fig = plt.figure()
-    ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection='3d')
     surf = ax.plot_trisurf(x, y, z, cmap=cm.terrain)
     plt.show()
 
