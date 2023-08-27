@@ -9,7 +9,7 @@ args = parser.parse_args()
 print('Reading DXF...')
 dwg = ezdxf.readfile(args.filename)
 modelspace = dwg.modelspace()
-points = modelspace.query('POINT[layer=="0"]')
+points = modelspace.query('POINT[layer=="PY"]')
 coords = [p.dxf.location for p in points]
 
 print('Preparing numpy arrays...')
