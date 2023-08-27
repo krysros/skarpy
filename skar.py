@@ -13,9 +13,10 @@ with np.load(args.filename) as npzfile:
 
 if args.backend == 'matplotlib':
 
+    import matplotlib
     import matplotlib.pyplot as plt
     from matplotlib import cm
-    from mpl_toolkits.mplot3d import Axes3D
+    matplotlib.use('qtagg')
 
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
@@ -25,7 +26,7 @@ if args.backend == 'matplotlib':
 elif args.backend == 'plotly':
 
     from plotly.graph_objects import Figure
-    from plotly.graph_objects import Mesh3d, Surface
+    from plotly.graph_objects import Mesh3d
 
     fig = Figure(data=[Mesh3d(x=x, y=y, z=z, opacity=0.5)])
     fig.show()
