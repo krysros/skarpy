@@ -10,12 +10,12 @@ print('Reading DXF...')
 dwg = ezdxf.readfile(args.filename)
 modelspace = dwg.modelspace()
 points = modelspace.query('POINT[layer=="PY"]')
-coords = [p.dxf.location for p in points]
 
 print('Preparing numpy arrays...')
-x = np.array([i[0] for i in coords])
-y = np.array([i[1] for i in coords])
-z = np.array([i[2] for i in coords])
+coords = np.array([p.dxf.location for p in points])
+x = coords[:, 0]
+y = coords[:, 1]
+z = coords[:, 2]
 
 print('Saving to file...')
 np.savez(args.filename[:-4] + '.npz', x=x, y=y, z=z)
