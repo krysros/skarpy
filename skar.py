@@ -13,10 +13,8 @@ with np.load(args.filename) as npzfile:
 
 if args.backend == 'matplotlib':
 
-    import matplotlib
     import matplotlib.pyplot as plt
     from matplotlib import cm
-    matplotlib.use('qtagg')
 
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
